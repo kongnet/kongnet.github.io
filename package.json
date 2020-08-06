@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "cz": "conventional-changelog -p atom -i CHANGELOG.md -s -r 0 && git add . && git status && git cz",
-    "push": "git push"
+    "push": "npm version patch && git push"
   },
   "repository": {
     "type": "git",
