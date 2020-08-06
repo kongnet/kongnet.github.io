@@ -1,6 +1,6 @@
 {
   "name": "kongnet.github.io",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Sky Blog",
   "main": "index.js",
   "scripts": {
