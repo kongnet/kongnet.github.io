@@ -1,0 +1,5 @@
+        
+//这段都用根目录的sidebar
+      alias: {
+          '/.*/_sidebar.md': '/_sidebar.md'
+        },

@@ -1,0 +1,28 @@
+{
+  "name": "kongnet.github.io",
+  "version": "1.0.0",
+  "description": "Sky Blog",
+  "main": "index.js",
+  "scripts": {
+    "cz": "conventional-changelog -p atom -i CHANGELOG.md -s -r 0 && git add . && git status && git cz",
+    "push": "git push"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kongnet/kongnet.github.io.git"
+  },
+  "author": "Kongnet",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kongnet/kongnet.github.io/issues"
+  },
+  "homepage": "https://github.com/kongnet/kongnet.github.io#readme",
+  "devDependencies": {
+    "cz-jt": "^0.1.11"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-jt"
+    }
+  }
+}
