@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Home - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="ConfusionMatrix.html">ConfusionMatrix</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ConfusionMatrix.html#addCountByKey">addCountByKey</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="NaiveBayes.html">NaiveBayes</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NaiveBayes.html#.fromJson">fromJson</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NaiveBayes.html#categorize">categorize</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NaiveBayes.html#frequencyTable">frequencyTable</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NaiveBayes.html#initializeCategory">initializeCategory</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NaiveBayes.html#learn">learn</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NaiveBayes.html#probabilities">probabilities</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NaiveBayes.html#toJson">toJson</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NaiveBayes.html#tokenProbability">tokenProbability</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Snowflake.html">Snowflake</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Snowflake.html#nextId">nextId</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Snowflake.html#tilNextMillis">tilNextMillis</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Snowflake.html#timeGen">timeGen</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Spinner.html">Spinner</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Spinner.html#setShowTxt">setShowTxt</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Spinner.html#start">start</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Spinner.html#stop">stop</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="VERSIONS.html">VERSIONS</a></span></li><li class="nav-heading">Namespaces</li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Array_prototype.html">Array_prototype</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Array_prototype.html#allCheck">allCheck</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Array_prototype.html#copy">copy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Array_prototype.html#countBy">countBy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Array_prototype.html#except">except</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Array_prototype.html#flatten">flatten</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Array_prototype.html#indexOfAll">indexOfAll</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Array_prototype.html#intersect">intersect</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Array_prototype.html#pick">pick</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Array_prototype.html#remove">remove</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Array_prototype.html#shuffle">shuffle</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Array_prototype.html#subset">subset</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Array_prototype.html#union">union</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Array_prototype.html#unique">unique</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="buf.html">buf</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Buffer_prototype.html">Buffer_prototype</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Buffer_prototype.html#contact">contact</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="color.html">color</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Date_prototype.html">Date_prototype</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Date_prototype.html#%255BdateAdd&offset%255D">[dateAdd&offset]</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Date_prototype.html#%255BdateAdd&offset%255D">[dateAdd&offset]</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Date_prototype.html#%255Bformat&date2Str%255D">[format&date2Str]</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Date_prototype.html#%255Bformat&date2Str%255D">[format&date2Str]</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Date_prototype.html#date8">date8</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Date_prototype.html#fillStr">fillStr</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Date_prototype.html#getWeek">getWeek</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Date_prototype.html#isLeap">isLeap</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="file.html">file</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Function_prototype.html">Function_prototype</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Function_prototype.html#help">help</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Geo.html">Geo</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Geo.html#bd2gd">bd2gd</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Geo.html#bd2tx">bd2tx</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Geo.html#gd2bd">gd2bd</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Geo.html#getDistance">getDistance</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Geo.html#tx2bd">tx2bd</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Math_prototype.html">Math_prototype</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#allList">allList</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#arrangeList">arrangeList</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#coeVariation">coeVariation</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#combinList">combinList</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#confidenceIntervals">confidenceIntervals</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#count">count</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#gMean">gMean</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#hMean">hMean</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#kendall">kendall</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#kurt1">kurt1</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#kurt2">kurt2</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#kurt3">kurt3</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#max">max</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#mean">mean</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#meanDev">meanDev</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#median">median</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#medianDev">medianDev</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#min">min</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#mode">mode</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#pearson">pearson</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#qMean">qMean</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#quantile">quantile</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#quantileAll">quantileAll</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#range">range</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#skew">skew</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#spearman">spearman</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#stddev">stddev</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#stddevCorrect">stddevCorrect</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#stdErr">stdErr</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#variance">variance</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#variance">variance</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#variance">variance</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Math_prototype.html#varianceCorrect">varianceCorrect</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="mathAlgebra.html">mathAlgebra</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="mathDistance.html">mathDistance</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="MathRand.html">MathRand</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MathRand.html#normal">normal</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MathRand.html#uniformBase">uniformBase</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MathRand.html#uniformRandInt">uniformRandInt</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="matrix.html">matrix</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="matrix.html#.add">add</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="matrix.html#.deepCopy">deepCopy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="matrix.html#.det">det</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="matrix.html#.dot">dot</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="matrix.html#.GaussJordanEliminate">GaussJordanEliminate</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="matrix.html#.getCol">getCol</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="matrix.html#.identity">identity</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="matrix.html#.inv">inv</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="matrix.html#.isSquare">isSquare</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="matrix.html#.lupDecomposition">lupDecomposition</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="matrix.html#.map">map</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="matrix.html#.mul">mul</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="matrix.html#.rowSwitch">rowSwitch</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="matrix.html#.scalar">scalar</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="matrix.html#.sub">sub</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="matrix.html#.transpose">transpose</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="matrix.html#.zero">zero</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Mock.html">Mock</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Mock.html#genBool">genBool</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Mock.html#genConstellation">genConstellation</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Mock.html#genDatetime">genDatetime</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Mock.html#genEnum">genEnum</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Mock.html#genText">genText</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Mock.html#genWord">genWord</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Mock.html#idCard">idCard</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Mock.html#phoneNum">phoneNum</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Mock.html#randColor">randColor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Mock.html#randData">randData</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Mock.html#randIp">randIp</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Mock.html#randName">randName</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Mock.html#randUrl">randUrl</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Number_prototype.html">Number_prototype</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Number_prototype.html#fillStr">fillStr</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Number_prototype.html#isPrime">isPrime</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Number_prototype.html#prettyBytes">prettyBytes</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Number_prototype.html#round">round</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Reg_prototype.html">Reg_prototype</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Reg_prototype.html#gen">gen</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="RequireDir_prototype.html">RequireDir_prototype</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="RequireDir_prototype.html#requireAll">requireAll</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="String_prototype.html">String_prototype</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="String_prototype.html#ac">ac</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="String_prototype.html#camelize">camelize</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="String_prototype.html#dc">dc</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="String_prototype.html#deCamelize">deCamelize</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="String_prototype.html#ec">ec</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="String_prototype.html#esHtml">esHtml</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="String_prototype.html#fillStr">fillStr</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="String_prototype.html#format">format</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="String_prototype.html#len">len</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="String_prototype.html#reHtml">reHtml</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="String_prototype.html#render">render</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="String_prototype.html#replaceAll">replaceAll</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="String_prototype.html#tc">tc</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="String_prototype.html#times">times</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="String_prototype.html#toHtml">toHtml</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="String_prototype.html#toInt">toInt</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="String_prototype.html#toLow">toLow</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="String_prototype.html#toMoney">toMoney</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="String_prototype.html#toUp">toUp</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="String_prototype.html#upperFirst">upperFirst</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="tools.html">tools</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="tools.html#copy">copy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="tools.html#copy">copy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="tools.html#ifObjEmpty">ifObjEmpty</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="tools.html#ifObjEmpty">ifObjEmpty</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="tools.html#jsonPack">jsonPack</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="tools.html#jsonPack">jsonPack</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="tools.html#rnd">rnd</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="tools.html#rnd">rnd</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="tools.html#timeAgo">timeAgo</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="tools.html#timeAgo">timeAgo</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="tools.html#uuid">uuid</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="tools.html#uuid">uuid</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="tools.html#wait">wait</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="tools.html#wait">wait</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="tools.html#waitNotEmpty">waitNotEmpty</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="tools.html#waitNotEmpty">waitNotEmpty</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#bboxes">bboxes</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#bboxes_int">bboxes_int</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#benchmark">benchmark</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#c">c</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#compare">compare</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#decode">decode</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#decode_bbox">decode_bbox</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#decode_bbox_int">decode_bbox_int</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#decode_int">decode_int</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#defaultTokenizer">defaultTokenizer</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#dir">dir</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#drawLine">drawLine</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#drawTable">drawTable</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#encode">encode</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#encode_int">encode_int</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#err">err</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#ext">ext</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#findMax">findMax</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#genHtml">genHtml</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#genRange">genRange</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#getStackTrace">getStackTrace</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#gridTable">gridTable</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#jacobi">jacobi</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#json">json</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#levenshtein">levenshtein</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#log">log</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#neighbor">neighbor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#neighbor_int">neighbor_int</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#neighbors">neighbors</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#neighbors_int">neighbors_int</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#now">now</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#PCA">PCA</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#peridForecast">peridForecast</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#pipe">pipe</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#STATE_KEYS">STATE_KEYS</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#SVD">SVD</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#wait">wait</a></span></li>
+</nav>
+
+<div id="main">
+    
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+
+    <section class="readme">
+        <article><h1>meeko</h1>
+<h2>文档 Document</h2>
+<blockquote>
+<p>https://free.xiaojia7879.com/meeko/</p>
+</blockquote>
+<p><img src="https://api.travis-ci.org/kongnet/meeko.svg?branch=master" alt="Build Stat">
+<a href="https://coveralls.io/github/kongnet/meeko?branch=master"><img src="https://coveralls.io/repos/github/kongnet/meeko/badge.svg?branch=master" alt="Coverage Status"></a>
+<a href="https://www.codacy.com/app/9601698/meeko?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kongnet/meeko&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/fb7f44bf54b742ec97db7c17f49ceb4c" alt="Codacy Badge"></a></p>
+<p><a href="https://nodei.co/npm/meeko/"><img src="https://nodei.co/npm/meeko.png?downloads=true&amp;stars=true" alt="NPM"></a></p>
+<p><a href="https://github.com/kongnet/meeko"><img src="https://cdn.rawgit.com/feross/standard/master/badge.svg" alt="Standard - JavaScript Style Guide"></a></p>
+<p><a href="https://img.shields.io/npm/dy/meeko.svg"><img src="https://img.shields.io/npm/dy/meeko.svg" alt="meeko"></a>
+<a href="https://img.shields.io/npm/l/meeko.svg?style=popout"><img src="https://img.shields.io/npm/l/meeko.svg?style=popout" alt="meeko"></a>
+<a href="https://img.shields.io/github/package-json/v/kongnet/meeko.svg?style=popout"><img src="https://img.shields.io/github/package-json/v/kongnet/meeko.svg?style=popout" alt="meeko"></a>
+<a href="https://img.shields.io/github/commit-activity/y/kongnet/meeko.svg?style=popout"><img src="https://img.shields.io/github/commit-activity/y/kongnet/meeko.svg?style=popout" alt="meeko"></a></p>
+<p><a href="https://img.shields.io/github/repo-size/kongnet/meeko.svg"><img src="https://img.shields.io/github/repo-size/kongnet/meeko.svg" alt="meeko"></a></p>
+<p><a href="https://img.shields.io/sonar/https/sonarcloud.io/kongnet_meeko/tech_debt.svg"><img src="https://img.shields.io/sonar/https/sonarcloud.io/kongnet_meeko/tech_debt.svg" alt="meeko"></a>
+<a href="https://sonarcloud.io/dashboard?id=kongnet_meeko"><img src="https://img.shields.io/sonar/https/sonarcloud.io/kongnet_meeko/violations.svg?style=popout&amp;format=long" alt="meeko"></a></p>
+<p><a href="https://sonarcloud.io/dashboard?id=kongnet_meeko"><img src="https://sonarcloud.io/api/project_badges/quality_gate?project=kongnet_meeko" alt="Quality gate"></a></p>
+<blockquote>
+<p>贡献者 TouchTheTop 、haua</p>
+</blockquote>
+<h2>安装</h2>
+<pre class="prettyprint source lang-js"><code>npm i meeko
+</code></pre>
+<h2>100%全覆盖率测试</h2>
+<pre class="prettyprint source lang-js"><code>npm test
+</code></pre>
+<h2>开始你的征途 Start your way</h2>
+<pre class="prettyprint source lang-js"><code>let $ = require('meeko')
+</code></pre>
+<h2>常用机器学习常用距离和相似度 math.dist 下</h2>
+<ul>
+<li>Euclidean Distance(欧式距离)</li>
+<li>Standardized Euclidean Distance(标准化欧氏距离)</li>
+<li>ManhattanDistance(曼哈顿距离)</li>
+<li>mahalanobis(马氏距离) ml.util 下</li>
+<li>LanceDistance(兰氏距离)</li>
+<li>LevenshteinDistance(Levenshtein 距离)/editDistance(编辑距离)</li>
+<li>Chebyshev Distance(切比雪夫距离)</li>
+<li>HammingDistance(汉明距离)</li>
+<li>杰卡德相似系数</li>
+<li>杰卡德距离</li>
+<li>Cos(Cosine 余弦)相似度</li>
+<li>Dice 相关系数</li>
+</ul>
+<h2>矩阵基础操作 math.mat 下</h2>
+<ul>
+<li>复制矩阵</li>
+<li>矩阵转置</li>
+<li>加法</li>
+<li>减法</li>
+<li>比例</li>
+<li>叉乘</li>
+<li>点乘</li>
+<li>矩阵行列式</li>
+<li>矩阵获取列</li>
+<li>矩阵获取列</li>
+<li>全 0 矩阵</li>
+<li>单位矩阵</li>
+<li>高斯约旦消元法</li>
+<li>高斯约旦消元法求逆矩阵</li>
+</ul>
+<h2>矩阵高级操作 math.Matrix 下</h2>
+<ul>
+<li>R 语言矩阵基础操作</li>
+<li>1 创建一个向量 ok</li>
+<li>2 创建一个矩阵 ok</li>
+<li>3 矩阵转置 ok</li>
+<li>4 矩阵相加减 ok</li>
+<li>5 数与矩阵相 ok</li>
+<li>6 矩阵相乘 ok</li>
+<li>7 矩阵对角元素相关运算 ok</li>
+<li>设置数 ok</li>
+<li>设置数组 ok</li>
+<li>获取方阵对角线 ok</li>
+<li>8 矩阵求逆 ok</li>
+<li>9 矩阵的特征值与特征向量 ok 雅克比迭代</li>
+<li>10 矩阵的 Choleskey 分解 ok</li>
+<li>11 矩阵奇异值分解 【SVD】ok</li>
+<li>12 矩阵 QR 分解 ok</li>
+<li>13 矩阵广义逆(Moore-Penrose)</li>
+<li>14 矩阵 Kronecker 积</li>
+<li>15 矩阵的维数 ok</li>
+<li>16 矩阵的行和、列和、行平均与列平均 ok 【sum mean 中位 方差 标准差】</li>
+<li>17 矩阵 X'X 的逆</li>
+<li>18 取矩阵的上、下三角部分</li>
+<li>19 backsolve&amp;fowardsolve 函数</li>
+<li>20 row()与 col()函 ok</li>
+<li>21 行列式的值 ok</li>
+<li>22 向量化算子</li>
+<li>23 时间序列的滞后值</li>
+</ul>
+<h2>数学函数 Math function</h2>
+<ul>
+<li><em>intersect (a = [])</em> 交集</li>
+</ul>
+<pre class="prettyprint source lang-js"><code>[1,2,3].intersect([3,4,5]) => [3]
+</code></pre>
+<ul>
+<li><em>union (a = [])</em> 并集</li>
+</ul>
+<pre class="prettyprint source lang-js"><code>[1,2,3].union([3,4,5]) => [1,2,3,4,5]
+</code></pre>
+<ul>
+<li><em>except (a = [])</em> AB 差集 属于 A 不属于 B BA 差集 反之</li>
+</ul>
+<pre class="prettyprint source lang-js"><code>[1, 2, 3, 4].except([2, 3, 5]) => [1,4]
+[2, 3, 5].except([1, 2, 3, 4]) => [5]
+</code></pre>
+<ul>
+<li><em>$.math.linearFitting (x = [],y = [])</em> --------线性拟合 y=a*x+b</li>
+<li><em>$.math.exponentFitting (x = [],y = [])</em> ---指数拟合 y=a<em>e^(b</em>x)</li>
+<li><em>$.math.lnFitting (x = [],y = [])</em> -------------对数拟合 y=a*ln(x)+b</li>
+<li><em>$.math.powerFitting (x = [],y = [])</em> -------幂函数拟合 y=a*x^b</li>
+<li><em>$.math.pearson (x = [],y = [])</em> -------------皮尔森相似度</li>
+</ul>
+<h2>JSON color format</h2>
+<pre class="prettyprint source lang-js"><code>* $.dir(object)
+* 内部10行代码实现 注意字符串下标数组无法显示
+</code></pre>
+<p><img src="https://github.com/kongnet/meeko/raw/master/screenShot/jsonFormat.png" alt="JSON color format"></p>
+<pre class="prettyprint source lang-js"><code>let colWidth = [5, 10, 6]
+let data = [
+  { id: '1', b: 'aaa', c: 'cccc1' },
+  { id: '2', b: 'bbb', c: 'cccc2' },
+  { id: '3', b: 'ccc', c: 'cccc3' }
+]
+$.drawTable(data, colWidth)
+</code></pre>
+<p><img src="https://github.com/kongnet/meeko/raw/master/screenShot/drawTable.png" alt="drawTable"></p>
+<h2>命令行 Spinner 动画</h2>
+<pre class="prettyprint source lang-js"><code>let spinner = new $.Spinner('dots2')
+spinner.start()
+// '⣾⣽⣻⢿⡿⣟⣯⣷'
+</code></pre>
+<h2>mock 扩展</h2>
+<pre class="prettyprint source lang-js"><code>genDatetime // 产生起始日期-终止日期中间的日期 形式为 YYYY-MM-DD hh:mm:ss genDatetime('2016-1-1' '2016-2-2')
+genData // 产生 指定字符串中用到的字符 返回指定长度  genData('abcdefghijklmnopqrstuvwxyz',10)
+genName // 随机返回2-3的人名
+genCard // 随机返回形式合格的身份码
+genIp // 随机ip地址
+genUrl // 随机返回 中间随机长度的 url genUrl(5)
+genPhone // 随机返回 中国手机号码
+genColor // 随机范围 hex颜色 和 rgba颜色 genColor('rgba')
+genWord // 返回指定长度的中文常用字
+genText // 返回指定长度的随机句子 >10才会有，。 也占1个汉字
+genConstellation // 随机返回星座
+genBool // 随机返回0,1`@genBool`
+genEnum // 随机范围 数组的一个值 genEnum([1,2,3,'5x'])
+</code></pre>
+<h2>颜色基本函数 Color basic function</h2>
+<pre class="prettyprint source lang-js"><code>$.log($.c.dimr('dimred', backGroundColor[41 - 47], isUnderline))
+</code></pre>
+<h2>日期格式化 Date format</h2>
+<pre class="prettyprint source lang-js"><code>yyyy/YYYY mm/MM ww/WW dd/DD hh/HH mm ss SS(毫秒) q(季度) X(unix秒)
+$.now().format('X')
+</code></pre>
+<h2>基础数据类型判断函数 Data type check</h2>
+<ul>
+<li><em>isObj===isObject</em> 只接受对象型</li>
+<li><em>isStringt</em> 只接字符型</li>
+</ul>
+<pre class="prettyprint source lang-js"><code>其他对象会强制转化为String
+注意, 不要设置默认值, 不是字符串, 有长度len判断时会有风险
+</code></pre>
+<ul>
+<li><em>isBoolean</em> 只接受布尔型</li>
+<li><em>isBool</em> 泛布尔型</li>
+</ul>
+<pre class="prettyprint source lang-js"><code>[0, 1, true, false, '0', '1', 'true', 'false']都可以
+</code></pre>
+<ul>
+<li>
+<p><em>isNumber</em> 只接受浮点型，也不接受{},[]等内部转换</p>
+</li>
+<li>
+<p><em>isBigInt</em> 只接受 bigInt 型</p>
+</li>
+<li>
+<p><em>isArray</em> 只接受数组 t 型</p>
+</li>
+<li>
+<p><em>isNull</em> 只接受 null 型</p>
+</li>
+<li>
+<p><em>isUndefined</em> 只接受 undefined 型</p>
+</li>
+<li>
+<p><em>isRegExp</em> 只接受正则型</p>
+</li>
+<li>
+<p><em>isDecimal</em> 泛浮点型</p>
+</li>
+</ul>
+<pre class="prettyprint source lang-js"><code>[null, undefined, 正则, 布尔值, {}, []]不可以
+可以化为数值的字符串 可以, 但类似 '1x' 不可以
+</code></pre>
+<ul>
+<li><em>isInt 整型 isPInt 正整型 isNInt 负整型</em></li>
+</ul>
+<pre class="prettyprint source lang-js"><code>同isDecimal 原则
+</code></pre>
+<ul>
+<li><em>isDate</em></li>
+</ul>
+<pre class="prettyprint source lang-js"><code>可以化为日期的字符串，日期型都可以。日期型没意义因为初始化就确定时间了,日期字
+符型必须有 “/” 或者 “-”
+#now() 作为默认值代表 当前时间
+</code></pre>
+<h2>checkParam</h2>
+<pre class="prettyprint source lang-js"><code>增加 enum类型，def不起作用 size设置不能为空,且为数组
+</code></pre>
+<h2>原型扩展 Array prototype</h2>
+<ul>
+<li><em>remove (idx = 0, len = 1)</em></li>
+</ul>
+<pre class="prettyprint source lang-js"><code>[1, 2, 3, 4, 5].remove(1,2) => [1,4,5]
+</code></pre>
+<ul>
+<li><em>count()</em></li>
+</ul>
+<pre class="prettyprint source lang-js"><code> ['A', 'B', 'B', 'C', 'A', 'D'].count() => {&quot;A&quot;:2,&quot;B&quot;:2,&quot;C&quot;:1,&quot;D&quot;:1}
+</code></pre>
+<ul>
+<li><em>flatten()</em></li>
+</ul>
+<pre class="prettyprint source lang-js"><code>[1, [2, [3, [4, 5], 6], 7], 8].flatten() => [1,2,3,4,5,6,7,8]
+</code></pre>
+<ul>
+<li><em>orderBy()</em></li>
+</ul>
+<pre class="prettyprint source lang-js"><code>[{ name: 'A', age: 48 }, { name: 'B', age: 36 }, { name: 'C', age: 26 }]
+.orderBy(['age'],['asc'])
+=> [{&quot;name&quot;:&quot;C&quot;,&quot;age&quot;:26},{&quot;name&quot;:&quot;B&quot;,&quot;age&quot;:36},{&quot;name&quot;:&quot;A&quot;,&quot;age&quot;:48}] 默认升序
+</code></pre>
+<h2>原型扩展 String prototype</h2>
+<ul>
+<li><em>upperFirst()</em> ----------------将首字母变成大写,其他小写</li>
+<li><em>String.render(o)</em> ----------字符串模板渲染</li>
+<li><em>fillStr(str, len, pos = 1)</em> --填入什么字符多少位,中文算 2 个字符,pos 1 右面填，-1 左面填</li>
+</ul>
+<h3>Notice</h3>
+<pre class="prettyprint source lang-js"><code>$.tools.checkParam(obj)
+* obj 如果为日期格式,日期格式为UTC日期
+* 请在前端写入mysql之前 date.date2Str()一下
+* 否则需要主动调用mysql的转换utc时间的函数
+</code></pre>
+<h2>正则发生器 RegExp generator</h2>
+<pre class="prettyprint source lang-js"><code>r = '(你|我|他)'
+console.log($.reg.gen(r))
+</code></pre>
+<h2>路径下所有 js 文件全加载</h2>
+<pre class="prettyprint source lang-js"><code>$.requireAll() // 加载某个目录下的所有对象，默认 __dirname
+</code></pre>
+<h2>分布式雪花碎片算法 每秒可以产生超过 200 万 不重复 id</h2>
+<pre class="prettyprint source lang-js"><code>new $.Snowflake(workId, dataCenterId, sequence) // 工作进程id ，服务器id，开始序号
+</code></pre>
+<h2>一个函数的输出是另一个函数的输入 pipe</h2>
+<pre class="prettyprint source lang-js"><code> let r = $.pipe(x => x.toUpperCase(), ------单词变大写
+      a => a.split(''), --------------------分成数组
+      a => a[3], ---------------------------取下标3
+      s => s.charCodeAt(0).toString(16), ---变为16进制
+      s => s.fillStr('0', 4, -1), ----------不足4位部分左边填0
+      s => `\\u${s}` -----------------------转成\uxxxx 形式
+    )('Test') ------------------------------ => \u0054
+</code></pre>
+<p><img src="https://github.com/kongnet/meeko/raw/master/screenShot/nb_text.png" alt="nb_text"></p>
+<h2>特征工程之 PCA 鸢尾花降维</h2>
+<p><img src="https://github.com/kongnet/meeko/raw/master/screenShot/pca.png" alt="nb_text"></p>
+<h2>常用用错概念 await 某实例的 then 函数</h2>
+<pre class="prettyprint source lang-javascript"><code>function thenFunc () {
+  let me = this
+  me.then = async function (resolve, reject) {
+    await $.wait(2000)
+    resolve('success')
+    reject('failure')
+    console.log(2)
+  }
+  me.a1 = 'a1'
+  return me
+}
+
+async function init () {
+  try {
+    let r = new thenFunc()
+    await r
+    console.log(11, r)
+  } catch (err) {
+    console.log(err)
+  }
+}
+init()
+process.on('unhandledRejection', function (e) {
+  console.log(e, 'xxx')
+})
+</code></pre>
+<p>https://gitmoji.carloscuesta.me/</p>
+<h2>趣题收集</h2>
+<pre class="prettyprint source lang-js"><code>// 小明玩王者荣耀胜率为50% 每天玩10局，问每天小明连胜3局以上的概率是多少？
+// 解法一
+const $ = require('meeko')
+const times = 3000000 // 总模拟次数
+console.log(
+  '10'
+    .repeat(times / 2)
+    .split('') // 填入一半1 一半0
+    .fisherYates() // 洗牌算法
+    .chunk(10) // 按10个一组分组,每天10局
+    .filter(item => /1{3,10}/g.test(item.join(''))).length / // 找出10次内满足 3次-10次连胜的情况
+    (times / 10) // 换算到每天
+)
+// 0.5080 => 50%
+
+// 解法二
+/**
+ * 样本空间 10
+ * 胜利概率 1/2 成功 失败
+ * 目标 大于连续三次胜利
+ */
+function 获取大于连续三次胜利概率 (测试次数 = 10000) {
+  let 测试通过 = 0
+  function 玩一天 () {
+    胜利次数 = 0
+    for (let i = 0; i &lt; 10; i++) {
+      if (成功吗()) {
+        if (++胜利次数 === 3) return 测试通过++
+      } else {
+        胜利次数 = 0
+      }
+    }
+  }
+  for (let i = 0; i &lt; 测试次数; i++) 玩一天()
+  return 测试通过 / 测试次数
+}
+
+function 成功吗 () {
+  return Math.random() > 0.5
+}
+
+function 单元测试__成功吗 () {
+  let 测试通过 = 0
+  let 测试次数 = 1000
+  for (let i = 0; i &lt; 测试次数; i++) {
+    if (成功吗()) 测试通过++
+  }
+  return 测试通过 / 测试次数
+}
+// 获取大于连续三次胜利概率()
+// 最终解法 520 / 1024
+</code></pre>
+<pre class="prettyprint source lang-js"><code>// 一个自然数将它的末尾数字移到首位,得到的新数是原数的2倍,求这个自然数
+let [n, mod] = [0n, 1n]
+while (mod !== 0n) {
+  n = n + 1n
+  mod = ((20n * 10n ** n - 4n) * 10n) % 19n
+}
+console.log('结果:', ((20n * 10n ** n - 4n) * 10n) / 19n + 2n)
+// 105263157894736842n
+</code></pre>
+<pre class="prettyprint source lang-js"><code>/*
+编写完成分数转小数函数fraction2decimal
+输入2个正整数(&lt;2^52)，输出小数，如有循环节 用[]框出，
+例如 1,7=> 0.[142857] 13,90=> 0.1[4] 1,1=>1
+普通要求：代码控制在20行内，15分钟完成
+更高要求：代码控制在10行内，算法复杂度O(N)
+*/
+</code></pre></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a> on Thu Sep 24 2020 15:10:00 GMT+0800 (中国标准时间) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
