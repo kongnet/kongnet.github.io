@@ -1,0 +1,582 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>加推实战之逆地址查询</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><h2><a name="加推实战之geohash逆地址查询" class="md-header-anchor"></a><span>加推实战之GeoHash逆地址查询</span></h2><blockquote><p><span>WebGIS应用非常广泛，掌握原理和编码方式是全栈必须的技能💥</span></p></blockquote><h3><a name="1从痛点说起" class="md-header-anchor"></a><span>1.从痛点说起</span></h3><ul><li><span>小程序和一些弱网情况下无法获得经纬度所对应的省区信息。😶</span></li><li><span>各大webMapAPI都需要AccessKey，本身管理不统一，普通key的调用会有频度限制。</span></li><li><span>用户希望迅速，定位到所在地区的服务门店😶</span></li></ul><h3><a name="需求分析" class="md-header-anchor"></a><span>需求分析</span></h3><ul><li><span>1.离线或本地化，通过经纬度来查询得到中国省区信息。💥</span></li><li><span>2.希望有较高的性能，在后端直接完成经纬度到地区的转化</span></li></ul><h4><a name="解决方案学习" class="md-header-anchor"></a><span>解决方案学习</span></h4><ul><li><span>我们可能需要几个小工具，来完成这个任务</span>😄</li><li><span>常规的做法是利用GIS中附近的概念来快速匹配位置</span></li><li><span>Mysql和Redis中的关于地理操作的函数</span></li><li><span>理解GeoHash</span></li></ul><blockquote><p><strong><span>最终实施方案：将市区的POI点位信息转化为GeoHash，查询时进行附近纠正，最后愉快得出结果</span></strong>😄</p></blockquote><h5><a name="js计算2点经纬度之间的距离" class="md-header-anchor"></a><span>JS计算2点经纬度之间的距离</span></h5><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="JavaScript" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="javascript"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8.16406px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">function</span> <span class="cm-def">getDistance</span> (<span class="cm-def">lat1</span>, <span class="cm-def">lng1</span>, <span class="cm-def">lat2</span>, <span class="cm-def">lng2</span>) {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">let</span> <span class="cm-def">radLat1</span> <span class="cm-operator">=</span> (<span class="cm-variable-2">lat1</span> <span class="cm-operator">*</span> <span class="cm-variable">Math</span>.<span class="cm-property">PI</span>) <span class="cm-operator">/</span> <span class="cm-number">180.0</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">let</span> <span class="cm-def">radLat2</span> <span class="cm-operator">=</span> (<span class="cm-variable-2">lat2</span> <span class="cm-operator">*</span> <span class="cm-variable">Math</span>.<span class="cm-property">PI</span>) <span class="cm-operator">/</span> <span class="cm-number">180.0</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">let</span> <span class="cm-def">a</span> <span class="cm-operator">=</span> <span class="cm-variable-2">radLat1</span> <span class="cm-operator">-</span> <span class="cm-variable-2">radLat2</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">let</span> <span class="cm-def">b</span> <span class="cm-operator">=</span> (<span class="cm-variable-2">lng1</span> <span class="cm-operator">*</span> <span class="cm-variable">Math</span>.<span class="cm-property">PI</span>) <span class="cm-operator">/</span> <span class="cm-number">180.0</span> <span class="cm-operator">-</span> (<span class="cm-variable-2">lng2</span> <span class="cm-operator">*</span> <span class="cm-variable">Math</span>.<span class="cm-property">PI</span>) <span class="cm-operator">/</span> <span class="cm-number">180.0</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">let</span> <span class="cm-def">s</span> <span class="cm-operator">=</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-number">2</span> <span class="cm-operator">*</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">Math</span>.<span class="cm-property">asin</span>(</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">Math</span>.<span class="cm-property">sqrt</span>(</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">Math</span>.<span class="cm-property">pow</span>(<span class="cm-variable">Math</span>.<span class="cm-property">sin</span>(<span class="cm-variable-2">a</span> <span class="cm-operator">/</span> <span class="cm-number">2</span>), <span class="cm-number">2</span>) <span class="cm-operator">+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">Math</span>.<span class="cm-property">cos</span>(<span class="cm-variable-2">radLat1</span>) <span class="cm-operator">*</span> <span class="cm-variable">Math</span>.<span class="cm-property">cos</span>(<span class="cm-variable-2">radLat2</span>) <span class="cm-operator">*</span> <span class="cm-variable">Math</span>.<span class="cm-property">pow</span>(<span class="cm-variable">Math</span>.<span class="cm-property">sin</span>(<span class="cm-variable-2">b</span> <span class="cm-operator">/</span> <span class="cm-number">2</span>), <span class="cm-number">2</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;  )</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  )</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable-2">s</span> <span class="cm-operator">=</span> <span class="cm-variable-2">s</span> <span class="cm-operator">*</span> <span class="cm-number">6378.137</span> <span class="cm-comment">// 地球半径;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable-2">s</span> <span class="cm-operator">=</span> <span class="cm-variable">Math</span>.<span class="cm-property">round</span>(<span class="cm-variable-2">s</span> <span class="cm-operator">*</span> <span class="cm-number">10000</span>) <span class="cm-operator">/</span> <span class="cm-number">10000</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">s</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 383px;"></div><div class="CodeMirror-gutters" style="display: none; height: 383px;"></div></div></div></pre><blockquote><p><span>当然咋们的地球是这样的：😶</span></p></blockquote><p><img src="geo1.jpg" referrerpolicy="no-referrer" alt="geo1"></p><blockquote><p><span>上面经纬度到距离算法的核心是:</span></p></blockquote><h5><a name="在纬度相等的情况下" class="md-header-anchor"></a><span>在纬度相等的情况下：</span></h5><ul><li><span>经度每隔0.00001度，距离相差约1米；</span></li><li><span>每隔0.0001度，距离相差约10米；</span></li><li><span>每隔0.001度，距离相差约100米；</span></li><li><span>每隔0.01度，距离相差约1000米；</span></li><li><span>每隔0.1度，距离相差约10000米。</span></li></ul><h5><a name="在经度相等的情况下" class="md-header-anchor"></a><span>在经度相等的情况下：</span></h5><ul><li><span>纬度每隔0.00001度，距离相差约1.1米；</span></li><li><span>每隔0.0001度，距离相差约11米；</span></li><li><span>每隔0.001度，距离相差约111米；</span></li><li><span>每隔0.01度，距离相差约1113米；</span></li><li><span>每隔0.1度，距离相差约11132米。</span></li></ul><blockquote><p><span>距离计算函数虽好，但当有很多点的时候计算量很大，大部分的C端产品都使用了附近这个概念，所以我们需要了解经纬度的另一种编码GeoHash</span></p></blockquote><h4><a name="geohash" class="md-header-anchor"></a><span>GeoHash</span></h4><h5><a name="1普通经纬度的缺点" class="md-header-anchor"></a><span>1.普通经纬度的缺点</span></h5><ul><li><span>后台中，需要同时对经度lng列、维度lat列做查询判断。</span></li><li><span>因为传入的lng、lat值总在变化，数据库中的查询很难进行缓存优化。</span></li></ul><h5><a name="2geohash算法" class="md-header-anchor"></a><span>2.GeoHash算法</span></h5><blockquote><p><em><span>墨卡托投影，是正轴等角圆柱投影。由荷兰地图学家墨卡托(G.Mercator)于1569年发明</span></em></p></blockquote><p><img src="geo3.jpg" referrerpolicy="no-referrer" alt="geo3"></p><ul><li><span>当然这种投影上线的面积会有很大的失真</span></li><li><span>geohash引入z曲线，对每个小方格进行编码，下面会有一个手工计算的过程</span></li></ul><p><img src="geo4.png" referrerpolicy="no-referrer" alt="geo4"><span> </span><img src="geo5.png" referrerpolicy="no-referrer" alt="geo5"></p><ul><li><span>z曲线不断分割平面，原来越密集，精度也不断提高，类似分形</span></li></ul><p><img src="geo8.png" referrerpolicy="no-referrer" alt="geo8"></p><ul><li><p><span>对某一数字通过二分法进行无限逼近。这里以经纬度区间 lng经度[-180,180]，lat维度[-90,90]</span></p></li><li><p><span>使用哈夫曼编码，假设维度值为31度，精确到1度，我们手算一下: </span>🔥</p><p><img src="geo2.png" referrerpolicy="no-referrer" alt="geo2"></p></li><li><p><span>同理经度也做哈夫曼编码</span></p></li><li><p><span>编码后，将经纬度的bit值交叉组合形成类似 11100 11101 00100 01111 00000 01101 01011 00001</span></p></li><li><p><span>维经维经维，经维经维经。。。</span></p></li><li><p><span>这里是5个bit一组，也就是2^5 ,这样就可以用base32 来描述5bit串</span></p></li></ul><h5><a name="3base32字符串化" class="md-header-anchor"></a><span>3.base32字符串化</span></h5><figure><table><thead><tr><th><span>十进制</span></th><th><span>0</span></th><th><span>1</span></th><th><span>2</span></th><th><span>3</span></th><th><span>4</span></th><th><span>5</span></th><th><span>6</span></th><th><span>7</span></th><th><span>8</span></th><th><span>9</span></th><th><span>10</span></th><th><span>11</span></th><th><span>12</span></th><th><span>13</span></th><th><span>14</span></th><th><span>15</span></th></tr></thead><tbody><tr><td><span>base32</span></td><td><span>0</span></td><td><span>1</span></td><td><span>2</span></td><td><span>3</span></td><td><span>4</span></td><td><span>5</span></td><td><span>6</span></td><td><span>7</span></td><td><span>8</span></td><td><span>9</span></td><td><span>b</span></td><td><span>c</span></td><td><span>d</span></td><td><span>e</span></td><td><span>f</span></td><td><span>g</span></td></tr><tr><td><span>十进制</span></td><td><span>16</span></td><td><span>17</span></td><td><span>18</span></td><td><span>19</span></td><td><span>20</span></td><td><span>21</span></td><td><span>22</span></td><td><span>23</span></td><td><span>24</span></td><td><span>25</span></td><td><span>26</span></td><td><span>27</span></td><td><span>28</span></td><td><span>29</span></td><td><span>30</span></td><td><span>31</span></td></tr><tr><td><span>base32</span></td><td><span>h</span></td><td><span>j</span></td><td><span>k</span></td><td><span>m</span></td><td><span>n</span></td><td><span>p</span></td><td><span>q</span></td><td><span>r</span></td><td><span>s</span></td><td><span>t</span></td><td><span>u</span></td><td><span>v</span></td><td><span>w</span></td><td><span>x</span></td><td><span>y</span></td><td><span>z</span></td></tr></tbody></table></figure><blockquote><p><strong><span>注意</span></strong><span>上面少了 a i l o 这几个比较容易混淆的字母</span></p></blockquote><ul><li><span>我们来举个例子</span></li><li><span>天安门经纬度</span><strong><span>GeoHash</span></strong><span>(39.90877336, 116.3974911) =&gt; </span><strong><span>wx4g09nj6</span></strong><span> ，精度9位</span></li><li><span>当然整个地球平面可以被1位的geohash表示如下图</span></li></ul><p><img src="geo6.png" alt="geo6"  /></p><ul><li><span>然后经纬度不断二分，每次二分变成4个小方块，每次二分的时候，精度也在不断提高</span></li></ul><p><img src="geo7.png" referrerpolicy="no-referrer" alt="geo7"></p><ul><li><span>至此，我们可以将我们的省市区经纬度数据，转换为geohash字符串，通过比较字符串来进行逆查询</span></li></ul><h5><a name="具体怎么做干货）" class="md-header-anchor"></a><span>具体怎么做（干货）？</span></h5><ul><li><span>1.将省市区经纬度信息POI转为geohash，根据上面的算法编写</span><strong><span>GeoHashEncode</span></strong><span> 函数,结果如下：</span></li></ul><p><img src="geo8.jpg" referrerpolicy="no-referrer" alt="geo8"></p><blockquote><p><span>这里我只做了6位geohash，误差在600米，对于区一级的定位是足够了，甚至可以考虑5位</span></p></blockquote><ul><li><span>2.将输入的经纬度坐标，转化为geohash，这里依旧选择转成6位</span></li><li><span>3.考虑地图坐标系的转换，相应的文章可以去搜索加深理解</span></li></ul><figure><table><thead><tr><th><span>坐标系</span></th><th><strong><span>Google Earth（WGS84）</span></strong></th><th><span>百度地图（BD09）</span></th><th><strong><span>高德地图（火星坐标）</span></strong></th></tr></thead><tbody><tr><td><span>坐标</span></td><td><span>116.386364 39.911985</span></td><td><span>116.398991,39.919753</span></td><td><span>116.392627,39.913428</span></td></tr><tr><td><span>转换为谷歌</span></td><td><span>--</span></td><td><span>116.386371,39.912032</span></td><td><span>116.386384,39.912025</span></td></tr><tr><td><span>转换为百度</span></td><td><span>116.398979,39.919702</span></td><td><span>--</span></td><td><span>116.399003,39.919747</span></td></tr><tr><td><span>转换为高德</span></td><td><span>116.392602,39.913383</span></td><td><span>116.392614,39.913434</span></td><td><span>--</span></td></tr></tbody></table></figure><p><span>于是我们主要进行高德转baidu的函数即可,非常简单</span>😄</p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="javascript"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="javascript"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8.16406px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">function</span> <span class="cm-def">bd2gd</span> (<span class="cm-def">lat</span>, <span class="cm-def">lng</span>) {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">let</span> <span class="cm-def">xPI</span> <span class="cm-operator">=</span> (<span class="cm-variable">Math</span>.<span class="cm-property">PI</span> <span class="cm-operator">*</span> <span class="cm-number">3000.0</span>) <span class="cm-operator">/</span> <span class="cm-number">180.0</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">let</span> <span class="cm-def">x</span> <span class="cm-operator">=</span> <span class="cm-variable-2">lng</span> <span class="cm-operator">-</span> <span class="cm-number">0.0065</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">let</span> <span class="cm-def">y</span> <span class="cm-operator">=</span> <span class="cm-variable-2">lat</span> <span class="cm-operator">-</span> <span class="cm-number">0.006</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">let</span> <span class="cm-def">z</span> <span class="cm-operator">=</span> <span class="cm-variable">Math</span>.<span class="cm-property">sqrt</span>(<span class="cm-variable-2">x</span> <span class="cm-operator">*</span> <span class="cm-variable-2">x</span> <span class="cm-operator">+</span> <span class="cm-variable-2">y</span> <span class="cm-operator">*</span> <span class="cm-variable-2">y</span>) <span class="cm-operator">-</span> <span class="cm-number">0.00002</span> <span class="cm-operator">*</span> <span class="cm-variable">Math</span>.<span class="cm-property">sin</span>(<span class="cm-variable-2">y</span> <span class="cm-operator">*</span> <span class="cm-variable-2">xPI</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">let</span> <span class="cm-def">theta</span> <span class="cm-operator">=</span> <span class="cm-variable">Math</span>.<span class="cm-property">atan2</span>(<span class="cm-variable-2">y</span>, <span class="cm-variable-2">x</span>) <span class="cm-operator">-</span> <span class="cm-number">0.000003</span> <span class="cm-operator">*</span> <span class="cm-variable">Math</span>.<span class="cm-property">cos</span>(<span class="cm-variable-2">x</span> <span class="cm-operator">*</span> <span class="cm-variable-2">xPI</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">let</span> <span class="cm-def">gg_lng</span> <span class="cm-operator">=</span> <span class="cm-variable-2">z</span> <span class="cm-operator">*</span> <span class="cm-variable">Math</span>.<span class="cm-property">cos</span>(<span class="cm-variable-2">theta</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">let</span> <span class="cm-def">gg_lat</span> <span class="cm-operator">=</span> <span class="cm-variable-2">z</span> <span class="cm-operator">*</span> <span class="cm-variable">Math</span>.<span class="cm-property">sin</span>(<span class="cm-variable-2">theta</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">return</span> { <span class="cm-property">lat</span>: <span class="cm-variable-2">gg_lat</span>, <span class="cm-property">lng</span>: <span class="cm-variable-2">gg_lng</span> }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 225px;"></div><div class="CodeMirror-gutters" style="display: none; height: 225px;"></div></div></div></pre><ul><li><span>4.找到输入的geohash和数据中的geohash后，寻找周围8个邻居，这步比较重要，也是geohash的缺点</span></li></ul><p><img src="geo9.png" referrerpolicy="no-referrer" alt="geo9"></p><blockquote><p><span>从上图可以看出，红点虽然在E区，但实际离开它最近的是在B区的黄点</span>😄</p></blockquote><ul><li><span>假设geohash是6位，bit位数 6*5 = 30位，所以lat lng 都是15bit。我们只要计算连续除以15次2后的lat和lng的值就可以知道上下左右斜8个方向的偏移量</span></li><li><span>举个例子，还是天安门，6位geohash是</span></li></ul><p><img src="geo9.jpg" referrerpolicy="no-referrer" alt="geo9"></p><ul><li><span>5.将上面9个点一起查询数据库，得出多条数据</span></li><li><span>6.然后使用文章开头的</span><strong><span>getDistance</span></strong><span>函数,找到多条数据中最近的位置</span></li><li><span>7.如果6位geohash找不到，那就降维5位，继续2-6步骤，再找不到，输出不在中国境内，完成</span>🔥</li></ul><blockquote><p><span>来看一下这个类库结构80行代码，然后做一次验证</span></p></blockquote><p><img src="geo10.jpg" referrerpolicy="no-referrer" alt="geo10"></p><ul><li><span>验证</span></li></ul><p><img src="geo11.jpg" alt="geo11" style="zoom: 80%;" /><img src="geo12.jpg" alt="geo12" style="zoom:60%;" /></p><h5><a name="精度问题" class="md-header-anchor"></a><span>精度问题</span></h5><ul><li><span>9位geohash</span><span>	</span><span>lat 22bit </span><span>	</span><span>lng 23bit</span><span>	</span><span>误差 ±0.00478km，5*9=45bit。可查wiki百科</span></li><li><span>9位geohash可以达到4.7m的误差，可以说普通使用足够了</span></li><li><span>实际我们得到的经纬度如果没有6位以上，也不需要进行9位geohash的转换</span></li><li><span>实际的算法中，使用了6位geohash，然后降维到5位geohash。</span></li></ul><h5><a name="性能" class="md-header-anchor"></a><span>性能</span></h5><blockquote><p><span>开发完成后需要进行单元测试和性能测试，可以使用之前说到的$.benchmark函数</span></p></blockquote><ul><li><span>本地逆地址查询的性能在5000次/秒，当然还有不少优化空间</span></li><li><span>10万个POI下，字符串查询附近比普通经纬度距离（直接</span><strong><span>getDistance</span></strong><span>）查询大约快3倍，和机器性能有关。</span></li></ul><p>&nbsp;</p><h4><a name="总结" class="md-header-anchor"></a><span>总结</span></h4><p><span>通过经纬度逆查询，分析学习编码提升自我，祝大家2020提升技术，开心，发财 </span>😄</p><p>&nbsp;</p></div>
+</body>
+</html>
